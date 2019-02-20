@@ -1,0 +1,17 @@
+In this problem, we are going to analysis some data (Superhero.dat) relating to children’s injuries while wearing superhero costumes. Children reporting to the emergency center at hospitals had the severity of their injury (injury) assessed (on a scale from 0, no injury, to 100, death). In addition, a note was taken of which superhero costume they were wearing (hero): Spiderman (1), Superman (2), the Hulk (3) or a Teenage Mutant Ninja Turtle (4).
+
+(a) Read the data `superhero.dat` by using `read_tsv` from `tidyverse`.
+q4data <- read_tsv('superhero.dat')
+
+(b) Recode the costume labels and make the variable a "factor".
+q4data$hero[q4data$hero==1] <- 'x1'
+q4data$hero[q4data$hero==2] <- 'x2'
+q4data$hero[q4data$hero==3] <- 'x3'
+q4data$hero[q4data$hero==4] <- 'x4'
+
+
+(c) Run a linear regression model to predict level of injury.
+injury = 41.62 + 18.71(Superman) - 6.25(Hulk) - 15.37(TMNT)
+
+(d) Draw some boxplots to show the injury severity for each superhero costumes.
+boxplot(injury~hero, data = q4data)

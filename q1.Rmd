@@ -1,0 +1,39 @@
+This question involves the use of linear regression on the `Auto` data set from the textbook library `ISLR`. You could do `?Auto` to check the description of the dataset.
+
+```{r}
+library(tidyverse)
+library(ISLR)
+head(Auto)
+```
+
+
+(a) Use the `lm()` function to perform a linear regression with `mpg` as the response and `horsepower` as the predictor.
+mpg=39.9359-0.1578*horsepower
+
+(b) Plot the response and the predictor as well as the regression line. Any comment?
+I don't think a linear model is appropriate here. I feel as if the residual graph would be curved in the positive x^2 direction. A negative exponential might suit this better. 
+
+(c) What's the prediction of `mpg` if `horsepower` is 100?
+mpg=39.9359-0.1578*(100)
+
+mpg=39.9359-15.78
+
+mpg=24.1559
+
+(d) What's the value of `R^2`? 
+Adjusted R-squared = .6049
+
+(e) Try a few different transformations of the predictor. And which is the best one you could find?
+Below are the adjusted R^2 values of the linear model (using lm()) between mpg and....
+
+Horsepower: .6049
+
+Displacement: .6473
+
+Weight: .6918
+
+Acceleration: .1771
+
+Of these, the weight of the vehicle is the best predictor of mpg.
+
+Note: All other variables (cylinders, year, and origin) do not change, so they would not make useful linear models.

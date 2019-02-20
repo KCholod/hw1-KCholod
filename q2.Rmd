@@ -1,0 +1,25 @@
+This question continues the use of the `Auto` data set.
+
+```{r}
+library(tidyverse)
+library(ISLR)
+head(Auto)
+```
+
+(a) Use the `lm()` function to perform a multiple linear regression with `mpg` as the response and all other variables except `name` as the predictors.
+mpg = -17.218435 - 0.493376*(cylinders) + 0.019896*(displacement) - 0.016951*(horsepower) - 0.006474*(weight) + 0.080576*(acceleration) + 0.750773*(year) + 1.426141*(origin)
+
+(b) Not all the variables would be useful to predict `mpg`. A way to test the significance of a variable is to consider a model without that variable. By comparing the MSEs of the original model and the reduced model, we will be able to tell which variables are more important. (You could compute the MSEs based on the whole dataset or based on a training set)
+MSE of...
+Entire Set: 10.84748
+Entire Set without cylinders: 10.91328
+Entire Set without displacement: 11.04547
+Entire Set without horsepower: 10.89018
+Entire Set without weight: 13.63226
+Entire Set without acceleration: 10.86625
+Entire set without year: 16.97567
+Entire set without origin: 11.59017
+
+(c) You discovered the variable which is least significant in part (b). Now split the dataset into a train and test sets and verify that the model without the least significant variable indeed is better than the original model.
+MSE(model w/o acceleration) = 10.22865
+MSE(model w/ acceleration) = 10.36728
